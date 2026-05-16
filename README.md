@@ -33,4 +33,8 @@ This is an ongoing learning repository and will be updated regularly as I contin
 
 ---
 
+<<<<<<< HEAD
 Happy coding! 🚀
+=======
+Happy coding! 🚀
+>>>>>>> fb9391c (update README and notes)
