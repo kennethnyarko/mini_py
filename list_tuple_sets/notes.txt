@@ -1,0 +1,262 @@
+# Python Lists, Tuples, and Sets — Notes
+
+## 1. Finding the index
+
+In Python, “finding the index” means getting the position of an item inside a sequence such as a list, string, or tuple.
+
+Example:
+
+numbers = [10, 20, 30, 20]
+print(numbers.index(20))
+# output = 1
+
+Explanation:
+- `index(20)` finds the first occurrence of `20`.
+- Even though `20` appears twice, the result is the first position.
+
+## 2. Checking membership with `in`
+
+Use `in` to test whether a value exists in a sequence.
+
+numbers = [10, 20, 30, 20]
+print(50 in numbers)
+# output = False
+
+Explanation:
+- `50 in numbers` returns `False` if the value is not found.
+- If the value exists, it returns `True`.
+
+## 3. Using `enumerate()`
+
+`enumerate()` gives both the index and the item when looping through a sequence.
+
+courses = ['Math', 'History', 'Science']
+for index, course in enumerate(courses, start=1):
+    print(index, course)
+
+Explanation:
+- `enumerate(courses, start=1)` starts counting at 1.
+- It prints pairs like `1 Math`, `2 History`, `3 Science`.
+
+## 4. Lists vs Tuples
+
+### Lists
+- Mutable: can be changed after creation.
+- You can add, remove, or update items.
+
+Example:
+
+list_1 = ['History', 'Math', 'Physics', 'CompSci']
+list_2 = list_1
+print(list_1)
+print(list_2)
+
+### Tuples
+- Immutable: cannot be changed after creation.
+- Use tuples for data that should stay fixed.
+
+Example:
+
+# tuple_1 = ('History', 'Math', 'Physics', 'CompSci')
+# tuple_2 = tuple_1
+# print(tuple_1)
+# print(tuple_2)
+# tuple_1[0] = 'Art'  # This will fail because tuples are immutable.
+
+## 5. Sets `{}`
+
+- Sets do not keep order.
+- Sets remove duplicate values.
+- Sets are useful for membership tests and comparison operations.
+
+Example:
+
+cs_courses = {'History', 'Math', 'Physics', 'CompSci'}
+print(cs_courses)
+
+Useful methods:
+- `a.intersection(b)` → items in both sets.
+- `a.difference(b)` → items in `a` but not in `b`.
+- `a.union(b)` → items in either `a` or `b`.
+
+Example usage:
+
+art_courses = {'Art', 'History', 'Music'}
+print(cs_courses.intersection(art_courses))
+
+## 6. Empty collections
+
+- Empty list: `[]` or `list()`
+- Empty tuple: `()` or `tuple()`
+- Empty set: `set()`
+
+Warning:
+- `empty_set = {}` creates an empty dictionary, not an empty set.
+
+## 7. Practice questions and examples
+
+### 7.1 Create and access a list
+
+Question:
+Create a list of 5 fruits and print the first and last fruit.
+
+Solution:
+fruits = ['Apple', 'Banana', 'Mango', 'Orange', 'Pineapple']
+print(fruits[0])
+print(fruits[-1])
+
+Explanation:
+- `fruits[0]` is the first item.
+- `fruits[-1]` is the last item.
+
+### 7.2 Modify a list
+
+Question:
+Change the second item of `[10, 20, 30, 40]` to `99`.
+
+Solution:
+nums = [10, 20, 30, 40]
+nums[1] = 99
+print(nums)
+
+Explanation:
+- Lists are mutable.
+- Index `1` is the second element.
+
+### 7.3 Add and remove items
+
+Question:
+Create an empty list, add 3 names, then remove one.
+
+Solution:
+names = []
+names.append('John')
+names.append('Mary')
+names.append('David')
+names.remove('Mary')
+print(names)
+
+Explanation:
+- `append()` adds values to the end.
+- `remove()` deletes by value.
+
+### 7.4 Length of a list
+
+Question:
+Count items in a list of 6 numbers.
+
+Solution:
+nums = [1, 2, 3, 4, 5, 6]
+print(len(nums))
+
+Explanation:
+- `len()` returns the number of elements.
+
+### 7.5 Basic slicing
+
+Question:
+Get the first 3 and last 2 elements from a list.
+
+Solution:
+nums = [1, 2, 3, 4, 5, 6]
+print(nums[:3])
+print(nums[-2:])
+
+Explanation:
+- `nums[:3]` returns items at indexes 0, 1, 2.
+- `nums[-2:]` returns the last two items.
+
+### 7.6 Reverse a list
+
+Question:
+Reverse a list using slicing.
+
+Solution:
+nums = [1, 2, 3, 4, 5]
+print(nums[::-1])
+
+Explanation:
+- `[::-1]` means start to end with step `-1`.
+- It creates a reversed copy.
+
+### 7.7 Step slicing
+
+Question:
+Print every second element.
+
+Solution:
+nums = [10, 20, 30, 40, 50, 60, 70]
+print(nums[::2])
+
+Explanation:
+- `::2` uses a step of 2.
+- It returns every second item.
+
+### 7.8 Sort ascending
+
+Question:
+Sort a list from smallest to largest.
+
+Solution:
+nums = [5, 2, 9, 1, 7]
+nums.sort()
+print(nums)
+
+Explanation:
+- `sort()` changes the list in place.
+- Default order is ascending.
+
+### 7.9 Sort descending
+
+Question:
+Sort a list from highest to lowest.
+
+Solution:
+nums = [5, 2, 9, 1, 7]
+nums.sort(reverse=True)
+print(nums)
+
+Explanation:
+- `reverse=True` sorts in descending order.
+
+### 7.10 Alphabetical sorting
+
+Question:
+Sort a list of names alphabetically.
+
+Solution:
+names = ['Zoe', 'Adam', 'John', 'Mary']
+names.sort()
+print(names)
+
+Explanation:
+- Strings are sorted alphabetically.
+- Python uses Unicode order.
+
+### 7.11 Using `enumerate()`
+
+Question:
+Print each item with its index.
+
+Solution:
+subjects = ['Math', 'Science', 'English']
+for i, subject in enumerate(subjects):
+    print(i, subject)
+
+Explanation:
+- `enumerate()` returns `(index, value)` pairs.
+- It is cleaner than manual index tracking.
+
+### 7.12 `enumerate(start=1)`
+
+Question:
+Start numbering from 1 instead of 0.
+
+Solution:
+subjects = ['Math', 'Science', 'English']
+for i, subject in enumerate(subjects, start=1):
+    print(i, subject)
+
+Explanation:
+- Default `enumerate()` starts at 0.
+- `start=1` makes numbering more user-friendly.
